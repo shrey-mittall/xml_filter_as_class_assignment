@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Programming Tools for the Data Scientist: Assignment 4</title>
+  <meta name="description" content="Homework 4 Data Science Tools CSCI-UA.0381 at NYU Courant">
+  <meta name="keywords" content="CSCI-UA.00381,course,Python,Data Science, manual rules, regular expression, regexp,NYU,Courant,Computer Science">
+  <style>
+    body {
+      font-size: 20px;
+    }
+    a:link {
+      color: #0000ee
+    }
+    a:visited {
+      color: #551a8b
+    }
+    ol li, ul li {
+      padding-bottom: 5px;
+    }
+    .like-h1 {
+      font-size: 2em;
+      font-weight: bold;
+      margin: 0.67em 0;
+    }
+    table.yellow-table {
+      width: 100%;
+      background-color: #ffff00;
+      border-collapse: collapse;
+    }
+    table.yellow-table th,
+    table.yellow-table td {
+      border: 2px solid white;
+      text-align: left;
+      padding: 20px 10px;
+      vertical-align: top;
+    }
+    table.yellow-table th > *:first-child,
+    table.yellow-table td > *:first-child {
+      margin-top: 0;
+    }
+    table.yellow-table th > *:last-child,
+    table.yellow-table td > *:last-child {
+      margin-bottom: 0;
+    }
+    table.yellow-table caption {
+      font-weight: bold;
+      font-size: large;
+    }
+  </style>
+</head>
+<body>
+<main>
+<div style="text-align: center;">
+  <h1 class="like-h1"><span style="color:#000080;">CSCI-UA.0381-001</span></h1>
+  <div class="like-h1"><p> Assignment Number 4 </p> <p> Due at Midnight after the 11th Class</p></div>
+</div>
+<p> Most of the files mentioned in this description are in the shared <b> DataScienceTools/Lecture4_scripts/ </b> directory for you to use.</p>
+<ol>
+  <li> <p> Copy <b> tic_tac_toe.py </b> into your local directory and
+  create a new program that incorporates this code, e.g., by importing
+  it. The program is currently designed so that two humans play against
+  each other, continually entering the row and column of the next move
+  until a game ends in a win or a draw. Your task is to replace one of
+  the human players with an automated "computer" player that follows a
+  set of rules. Assume that the human player is X, the automated
+  player is Y and it is random who goes first.  The automated player should
+  never lose and it should win if the human player makes a
+  mistake.  Your rules should include the following:
+      <ul>
+	<li> If there are two in a row, followed by an empty position
+	(along a row, column, or diagonal), the automated system
+	should fill the empty space. 
+	</li>
+	<li> When the automated player goes first, it should put its
+	piece in a corner or the center, never any of the side
+	  (non-corner) positions. </li>
+	<li> If the automated player goes second, its move should
+	depend on whether the human's first move was the corner, the
+	  center, or the side. </li>
+	<li> And so on ... </li>
+	<li> See the sixth page
+	of <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1207/s15516709cog1704_3">
+	Crowley and Sirgler (1993) "Flexible Strategy Use in Young
+	Children’s Tic-Tat-To", Cognitive Science 17,
+	531&ndash;561.</a> for more details on the sort of rules that need to be implemented.
+	</ul>
+   </li>
+  <li> <p> Write a Python program that uses an expanded version
+  of <b>[0-9][0-9.,]*</b> to recognize all the numbers found in
+  ‘all-OANC.txt’. The numbers should not end in a comma (<b>,</b>) or
+  period (<b> . </b>). The numbers should include numeric expressions
+  that contain any number word in the list on the next slide.  The
+  number patterns should also allow for combinations of digits and
+  words, e.g., <b>100.5 million</b>.  It should help you to use the
+  following list of number words <b> [‘one’, ’two’, ’three’, ’four’,
+  ’five’, ’six’, ’seven’, ’eight’, ’nine’, ’ten’, ’eleven’, ’twelve’,
+  ’thirteen’, ’fourteen’, ’fifteen’, ’sixteen’, ’seventeen’,
+  ’eighteen’, ’nineteen’, ’twenty’, ’thirty’, ’forty’, ’fifty’,
+  ’sixty’, ’seventy’, ’eighty’, ’ninety’, ’hundred’, ’thousand’,
+  ’million’, ’billion’, ’trillion’]</b> in your regular expression
+      patterns. </p>
+    <p> The final version of this python program should be able to be
+      run from the command line in a terminal as follows: </p>
+    <p>
+      <b> python3 get_numbers.py input_file output_file </b> </p> <p>
+      Where <b> intput_file </b> is the name of the input file and <b>
+      output_file </b> is the name of the output file.  For
+      example, <p> <b> get_numbers all-OANC.txt
+      all-numbers.txt </b> </p><p> would find all the instances of
+      numbers in all-OANC.txt and produce a file (all-numbers.txt)
+      containing all instances of numbers, 1 per line.  Note that
+      "python3" or "python" or any version of a call to python is OK.
+    </p>
+  </li> 
+  <li> <b> verb_irreg.tsv </b> has 4 columns (separated by tabs)
+  and 5666 rows. The first row labels all the columns. Only
+  irregular forms are provided. You should write a program that uses
+  these irregular forms as well as some manual rules to fill in all
+  the columns for all 5665 verbs, correctly using the word in the
+  first column to generate the forms for the other columns.  Some
+  sample lines of your output file may include the following:
+<ul style="list-style-type:none;">
+<li>abandon&nbsp;abandonned&nbsp;abandonned&nbsp;abandonning</li>
+<li>accompany&nbsp;accompanied&nbsp;accompanied&nbsp;accompanying</li>
+<li>decay&nbsp;decayed&nbsp;decayed&nbsp;decaying</li>
+<li>enervate&nbsp;enervated&nbsp;enervated&nbsp;enervating</li>
+<li>go&nbsp;went&nbsp;gone&nbsp;going</li>
+<li>goggle&nbsp;goggled&nbsp;goggled&nbsp;goggling</li>
+<li>huff&nbsp;huffed&nbsp;huffed&nbsp;huffing</li>
+<li>imbed&nbsp;imbedded&nbsp;imbedded&nbsp;imbedding</li>
+<li>mail&nbsp;mailed&nbsp;mailed&nbsp;mailing</li>
+ </ul>
+It is assumed that the regular forms of these verbs can be derived
+from the base form (the first column) in most cases. The exceptions
+are provided in the input file. By default, the same rule can be used
+to create both the past tense form of the verb and past particple.
+For example, that rule doubles the "n" in <b> abandon </b> and adds
+"ed" to form. However, the input file tells you that this rule does
+not work for <b> go </b> and that <b> went </b> and <b> gone </b> fill
+these two rolls.  The normal rule does apply for the present particple
+forms of both <b> abandon </b> and <b> go </b>, doubling the "n" in
+the first case.  The rules you implement should add "ed" and "ing" to
+the base form of the verb, with the following provisos:
+<ul> <li> In some cases the final letter of the base form should be doubled </li>
+  <li> A final "e" of the base form should be deleted </li>
+  <li> In some cases, a final "y" should be replaced by an "i" before adding "ed" </li>
+  </ul>
+All the rules will depend on the final 3 letters of the base form.  In particular, it
+is important whether each of these three letters are vowels or
+consonants.
+<p> Just like the previous program, the final version of this program
+should run from the command line and have 2 arguments: an input file and an output file.  For example, </p> <p> <b> python3 fill_in_verb_endings.py verb_irreg.tsv verb_Irreg2.tsv </b> </p> <p> should produce a modified version of <b> verb_irreg.tsv </b> called <b> verb_irreg2.tsv</b>.
+    </li>
+  </ol>
+</main>
+<footer>
+<hr style="height: 6px; margin-top: 40px;" />
+<p style="text-align: center;"><a href="https://www.nyu.edu/accessibility/">Accessibility</a></p>
+</footer>
+</body>
+</html>

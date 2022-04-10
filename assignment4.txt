@@ -1,0 +1,122 @@
+
+
+
+  
+  
+  
+  Programming Tools for the Data Scientist: Assignment 4
+  
+  
+  
+
+
+
+
+  CSCI-UA.0381-001
+   Assignment Number 4   Due at Midnight after the 11th Class
+
+ Most of the files mentioned in this description are in the shared  DataScienceTools/Lecture4_scripts/  directory for you to use.
+
+    Copy  tic_tac_toe.py  into your local directory and
+  create a new program that incorporates this code, e.g., by importing
+  it. The program is currently designed so that two humans play against
+  each other, continually entering the row and column of the next move
+  until a game ends in a win or a draw. Your task is to replace one of
+  the human players with an automated "computer" player that follows a
+  set of rules. Assume that the human player is X, the automated
+  player is Y and it is random who goes first.  The automated player should
+  never lose and it should win if the human player makes a
+  mistake.  Your rules should include the following:
+      
+	 If there are two in a row, followed by an empty position
+	(along a row, column, or diagonal), the automated system
+	should fill the empty space. 
+	
+	 When the automated player goes first, it should put its
+	piece in a corner or the center, never any of the side
+	  (non-corner) positions. 
+	 If the automated player goes second, its move should
+	depend on whether the human's first move was the corner, the
+	  center, or the side. 
+	 And so on ... 
+	 See the sixth page
+	of 
+	Crowley and Sirgler (1993) "Flexible Strategy Use in Young
+	Children’s Tic-Tat-To", Cognitive Science 17,
+	531&ndash;561. for more details on the sort of rules that need to be implemented.
+	
+   
+    Write a Python program that uses an expanded version
+  of [0-9][0-9.,]* to recognize all the numbers found in
+  ‘all-OANC.txt’. The numbers should not end in a comma (,) or
+  period ( . ). The numbers should include numeric expressions
+  that contain any number word in the list on the next slide.  The
+  number patterns should also allow for combinations of digits and
+  words, e.g., 100.5 million.  It should help you to use the
+  following list of number words  [‘one’, ’two’, ’three’, ’four’,
+  ’five’, ’six’, ’seven’, ’eight’, ’nine’, ’ten’, ’eleven’, ’twelve’,
+  ’thirteen’, ’fourteen’, ’fifteen’, ’sixteen’, ’seventeen’,
+  ’eighteen’, ’nineteen’, ’twenty’, ’thirty’, ’forty’, ’fifty’,
+  ’sixty’, ’seventy’, ’eighty’, ’ninety’, ’hundred’, ’thousand’,
+  ’million’, ’billion’, ’trillion’] in your regular expression
+      patterns. 
+     The final version of this python program should be able to be
+      run from the command line in a terminal as follows: 
+    
+       python3 get_numbers.py input_file output_file   
+      Where  intput_file  is the name of the input file and 
+      output_file  is the name of the output file.  For
+      example,   get_numbers all-OANC.txt
+      all-numbers.txt   would find all the instances of
+      numbers in all-OANC.txt and produce a file (all-numbers.txt)
+      containing all instances of numbers, 1 per line.  Note that
+      "python3" or "python" or any version of a call to python is OK.
+    
+   
+    verb_irreg.tsv  has 4 columns (separated by tabs)
+  and 5666 rows. The first row labels all the columns. Only
+  irregular forms are provided. You should write a program that uses
+  these irregular forms as well as some manual rules to fill in all
+  the columns for all 5665 verbs, correctly using the word in the
+  first column to generate the forms for the other columns.  Some
+  sample lines of your output file may include the following:
+
+abandon abandonned abandonned abandonning
+accompany accompanied accompanied accompanying
+decay decayed decayed decaying
+enervate enervated enervated enervating
+go went gone going
+goggle goggled goggled goggling
+huff huffed huffed huffing
+imbed imbedded imbedded imbedding
+mail mailed mailed mailing
+ 
+It is assumed that the regular forms of these verbs can be derived
+from the base form (the first column) in most cases. The exceptions
+are provided in the input file. By default, the same rule can be used
+to create both the past tense form of the verb and past particple.
+For example, that rule doubles the "n" in  abandon  and adds
+"ed" to form. However, the input file tells you that this rule does
+not work for  go  and that  went  and  gone  fill
+these two rolls.  The normal rule does apply for the present particple
+forms of both  abandon  and  go , doubling the "n" in
+the first case.  The rules you implement should add "ed" and "ing" to
+the base form of the verb, with the following provisos:
+  In some cases the final letter of the base form should be doubled 
+   A final "e" of the base form should be deleted 
+   In some cases, a final "y" should be replaced by an "i" before adding "ed" 
+  
+All the rules will depend on the final 3 letters of the base form.  In particular, it
+is important whether each of these three letters are vowels or
+consonants.
+ Just like the previous program, the final version of this program
+should run from the command line and have 2 arguments: an input file and an output file.  For example,    python3 fill_in_verb_endings.py verb_irreg.tsv verb_Irreg2.tsv    should produce a modified version of  verb_irreg.tsv  called  verb_irreg2.tsv.
+    
+  
+
+
+
+Accessibility
+
+
+
